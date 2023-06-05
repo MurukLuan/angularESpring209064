@@ -5,6 +5,9 @@ import { ProdutosRoutingModule } from './produtos-routing.module';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { MatTableModule } from '@angular/material/table';
 
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 @NgModule({
   declarations: [
     ProdutosComponent
@@ -12,7 +15,9 @@ import { MatTableModule } from '@angular/material/table';
   imports: [
     CommonModule,
     ProdutosRoutingModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule,
+    MatToolbarModule
   ]
 })
 export class ProdutosModule { }

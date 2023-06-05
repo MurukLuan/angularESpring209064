@@ -1,3 +1,4 @@
+import { ProdutosService } from './../services/produtos.service';
 import { Component, OnInit } from '@angular/core';
 import { Produto } from '../model/produto';
 
@@ -11,14 +12,10 @@ export class ProdutosComponent implements OnInit {
   produtos: Produto[];
   displayedColumns = ['id', 'nome', 'categoria',
   'quantidade', 'preco_unitario'];
+  produtosService : ProdutosService;
   constructor() {
-    this.produtos = [{
-      id: 1,
-      nome: 'Celular',
-      categoria: 'Celular',
-      quantidade: 1,
-      preco_unitario: 1000
-    }];
+    this.produtosService = new ProdutosService();
+    this.produtos = this.produtosService.list();
   }
 
   ngOnInit(): void {
