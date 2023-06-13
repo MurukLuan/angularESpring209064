@@ -12,7 +12,7 @@ export class ProdutosComponent implements OnInit {
 
   produtos: Observable<Produto[]>;
   displayedColumns = ['id', 'nome', 'categoria',
-  'quantidade', 'preco_unitario'];
+  'quantidade', 'valor'];
   //produtosService : ProdutosService;
   constructor(private produtosService : ProdutosService) {
     //this.produtosService = new ProdutosService();

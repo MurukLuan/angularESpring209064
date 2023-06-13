@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProdutosService {
 
-  private readonly recebidoAPI = '../../../assets/produtos.json'
+  private readonly recebidoAPI = 'api/produtos'
   constructor(private httpClient : HttpClient) { }
 
   list() {
