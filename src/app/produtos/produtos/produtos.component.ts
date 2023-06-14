@@ -2,6 +2,7 @@ import { ProdutosService } from './../services/produtos.service';
 import { Component, OnInit } from '@angular/core';
 import { Produto } from '../model/produto';
 import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-produtos',
@@ -14,12 +15,19 @@ export class ProdutosComponent implements OnInit {
   displayedColumns = ['id', 'nome', 'categoria',
   'quantidade', 'valor', 'actions'];
   //produtosService : ProdutosService;
-  constructor(private produtosService : ProdutosService) {
+  constructor(private produtosService : ProdutosService,
+    private router : Router,
+    private route : ActivatedRoute
+    ) {
     //this.produtosService = new ProdutosService();
     this.produtos = this.produtosService.list();
   }
 
   ngOnInit(): void {
+  }
+
+  onAdd(){
+    this.router.navigate(['novo'], {relativeTo : this.route})
   }
 
 }
