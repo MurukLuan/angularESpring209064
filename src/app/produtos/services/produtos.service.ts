@@ -14,4 +14,8 @@ export class ProdutosService {
     return this.httpClient.get<Produto[]>(this.recebidoAPI);
   }
 
+  save(salvar: Produto){
+    return this.httpClient.post<Produto>(this.recebidoAPI, salvar)
+  }
+
 }
