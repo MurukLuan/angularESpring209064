@@ -1,3 +1,4 @@
+import { ProdutoResolver } from './guarda-rota/produto.resolver';
 import { FormularioDeProdutosComponent } from './formulario-de-produtos/formulario-de-produtos.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,10 @@ const routes: Routes = [
     path:'', component: ProdutosComponent
 },
 {
-  path:'novo', component: FormularioDeProdutosComponent
+  path:'novo', component: FormularioDeProdutosComponent, resolve:{produto: ProdutoResolver}
+},
+{
+  path:'editar/:id', component: FormularioDeProdutosComponent, resolve:{produto: ProdutoResolver}
 }
 ];
 

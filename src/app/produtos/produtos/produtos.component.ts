@@ -30,4 +30,8 @@ export class ProdutosComponent implements OnInit {
     this.router.navigate(['novo'], {relativeTo : this.route})
   }
 
+  onEdit(produto : Produto){
+    this.router.navigate(['editar', produto.id], {relativeTo : this.route})
+  }
+
 }

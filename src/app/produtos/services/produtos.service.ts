@@ -14,8 +14,23 @@ export class ProdutosService {
     return this.httpClient.get<Produto[]>(this.recebidoAPI);
   }
 
+  carregarPorId(id: number){
+    return this.httpClient.get<Produto>(`${this.recebidoAPI}/${id}`);
+  }
+
   save(salvar: Produto){
+    if(salvar.id){
+      return this.atualizar(salvar)
+    }else{
+      return this.criar(salvar)
+    }
+  }
+
+  private criar(salvar: Partial<Produto>){
     return this.httpClient.post<Produto>(this.recebidoAPI, salvar)
+  }
+  private atualizar(salvar: Partial<Produto>){
+    return this.httpClient.put<Produto>(`${this.recebidoAPI}/${salvar.id}`, salvar);
   }
 
 }
